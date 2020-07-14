@@ -9,6 +9,7 @@ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 
 # temporaly setting path to rbenv for follow command in this shell
 echo `export PATH="$HOME/.rbenv/bin:$PATH"` >> ~/.bash_profile
+source ~/.bash_profile
 
 # init rbenv
 ~/.rbenv/bin/rbenv init

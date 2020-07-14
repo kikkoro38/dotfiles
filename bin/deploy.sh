@@ -7,7 +7,7 @@ do
 
   rm ~/"$f"
 
-  ln -s "$HOME/$f" ~/"$f"
+  ln -s "$HOME/dotfiles/$f" ~/"$f"
 
   [[ "$f" == ".vimrc" ]] && continue
   . ~/"$f"

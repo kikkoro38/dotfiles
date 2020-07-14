@@ -1,0 +1,6 @@
+# gtagのタグファイルをignore
+*GPATH
+*GRTAGS
+*GTAGS
+# .DS_Storeはいらぬ
+.DS_Store

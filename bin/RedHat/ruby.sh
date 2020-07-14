@@ -7,8 +7,8 @@ sudo yum install -y openssl-devel readline-devel zlib-devel
 # install rbenv
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 
-# setting path to rbenv for follow command in this shell
-export PATH="$HOME/.rbenv/bin:$PATH"
+# temporaly setting path to rbenv for follow command in this shell
+echo `export PATH="$HOME/.rbenv/bin:$PATH"` >> ~/.bash_profile
 
 # init rbenv
 ~/.rbenv/bin/rbenv init

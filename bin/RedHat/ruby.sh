@@ -2,7 +2,7 @@
 # install ruby
 
 # install package for ruby install
-sudo yum install -y openssl-devel readline-devel zlib-devel
+sudo yum install -y openssl-devel readline-devel zlib-devel ruby-devel
 
 # install rbenv
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
@@ -20,8 +20,8 @@ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 sudo ~/.rbenv/plugins/ruby-build/install.sh
 
 # install ruby latest version
-latest_ver=$(rbenv install -l | grep -v - | tail -1)
+latest_ver=$(~/.rbenv/bin/rbenv install -l | grep -v - | tail -1)
 
-rbenv install $latest_ver 
+~/.rbenv/bin/rbenv install $latest_ver 
 
-rbenv global $latest_ver
+~/.rbenv/bin/rbenv global $latest_ver

@@ -1,5 +1,6 @@
 #!/bin/bash
 
+RELOAD_FILES=(".bash_profile" ".bashrc")
 for f in .??*
 do
   [[ "$f" == ".git" ]] && continue
@@ -9,7 +10,8 @@ do
 
   ln -s "$HOME/dotfiles/$f" ~/"$f"
 
-  [[ "$f" == ".vimrc" ]] && continue
-  . ~/"$f"
+  if !`echo${RELOAD_FILES[@]} | grep -q "$f"`; then
+    . ~/"$f"
+  fi
 
 done

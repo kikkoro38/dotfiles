@@ -16,7 +16,7 @@ echo `export PATH="$HOME/.rbenv/bin:$PATH"` >> ~/.bash_profile
 # install rbenv plugin
 git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 
-sudo ~/.rbenv/plugins/ruby-build.install.sh
+sudo ~/.rbenv/plugins/ruby-build/install.sh
 
 # install ruby latest version
 latest_ver=$(rbenv install -l | grep -v - | tail -1)

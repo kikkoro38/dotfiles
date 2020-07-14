@@ -1,6 +1,8 @@
 #!/bin/bash
 # install ruby
 
+sudo yum install -y openssl-devel readline-devel zlib-devel
+
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 
 ~/.rbenv/bin/rbenv init

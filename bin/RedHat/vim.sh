@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install latest vim
-
+cd ~
 git clone https://github.com/vim/vim.git
 
 cd vim
@@ -22,3 +22,5 @@ git clone https://github.com/VundleVim/Vundle.vim.git Vundle.vim
 cd ~
 
 vim +BundleInstall +qa
+
+cd $0

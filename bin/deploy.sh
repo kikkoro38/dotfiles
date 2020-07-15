@@ -7,11 +7,15 @@ do
   [[ "$f" == ".git" ]] && continue
   [[ "$f" == ".DS_Store" ]] && continue
 
-  rm ~/"$f"
+  if [ -e ~/"$f" ]; then
+    rm ~/"$f"
+  fi
 
   ln -s "$HOME/dotfiles/$f" ~/"$f"
 
-  if !`echo ${RELOAD_FILES[@]} | grep "$f"`; then
+  if !`echo ${RELOAD_FILES[@]} | grep -q "$f"`; then
+    continue
+  else
     . ~/"$f"
   fi
 

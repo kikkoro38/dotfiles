@@ -9,7 +9,7 @@ sudo localectl set-locale LANG=ja_JP.UTF-8
 sudo localectl set-keymap jp106
 sudo localectl set-keymap jp-OADG109A
 
-sudo . /etc/locale.conf
+source /etc/locale.conf
 
 # set timezone
 

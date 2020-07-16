@@ -13,7 +13,7 @@ do
 
   ln -s "$HOME/dotfiles/$f" ~/"$f"
 
-  if !`echo ${RELOAD_FILES[@]} | grep -q "$f"`; then
+  if ! `echo ${RELOAD_FILES[@]} | grep -q "$f"`; then
     continue
   else
     . ~/"$f"

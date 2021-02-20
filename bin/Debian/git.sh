@@ -10,7 +10,7 @@ if [[ "$?" == 0 ]] ; then
 fi
 
 # install packages 
-sudo apt install -y libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev autoconf
+sudo apt install -y libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev autoconf asciidoc docbook2x
 
 # download git package
 wget https://github.com/git/git/archive/v2.30.0.tar.gz

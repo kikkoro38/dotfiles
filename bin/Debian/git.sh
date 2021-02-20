@@ -13,6 +13,7 @@ fi
 sudo apt install -y libcurl4-gnutls-dev libexpat1-dev gettext libz-dev libssl-dev autoconf asciidoc docbook2x
 
 # download git package
+cd ~/
 wget https://github.com/git/git/archive/v2.30.0.tar.gz
 
 tar -zxf v2.30.0.tar.gz

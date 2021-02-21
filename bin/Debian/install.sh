@@ -8,7 +8,7 @@
 
 ./bin/Debian/ruby.sh
 
-#./bin/Debian/vim.sh
+./bin/Debian/vim.sh
 
 #./bin/Debian/tmux.sh
 

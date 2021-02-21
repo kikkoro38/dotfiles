@@ -1,6 +1,9 @@
 # git settings
-source /usr/local/git/contrib/completion/git-prompt.sh
-source /usr/local/git/contrib/completion/git-completion.bash
+if [ -f /usr/local/git ] ; then
+  source /usr/local/git/contrib/completion/git-prompt.sh
+  source /usr/local/git/contrib/completion/git-completion.bash
+fi
+
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUPSTREAM=1
 GIT_PS1_SHOWUNTRACKEDFILES=1

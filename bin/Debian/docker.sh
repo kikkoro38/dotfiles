@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # install packages for docker
-sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg-agent
 
 # install GPG public key of docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -

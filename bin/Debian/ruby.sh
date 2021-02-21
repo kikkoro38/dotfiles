@@ -2,7 +2,7 @@
 # install ruby
 
 # install package for ruby install
-sudo apt install -y bison build-essential libyaml-dev libreadline6-dev libffi-dev libncurses5-dev libgdbm6 libgdbm-dev
+#sudo apt install -y bison build-essential libyaml-dev libreadline6-dev libffi-dev libncurses5-dev libgdbm6 libgdbm-dev
 
 # install rbenv
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv

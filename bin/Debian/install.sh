@@ -4,7 +4,7 @@
 
 ./bin/Debian/locale.sh
 
-#./bin/Debian/git.sh
+./bin/Debian/git.sh
 
 ./bin/Debian/ruby.sh
 

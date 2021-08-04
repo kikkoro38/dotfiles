@@ -1,4 +1,4 @@
-alias ll='ls -l'
+alias ll='ls -la --color'
 
 # path to usr/local
 export PATH=/usr/local/bin:$PATH

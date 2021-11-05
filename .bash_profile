@@ -20,3 +20,7 @@ fi
 
 export LANG=ja_JP.UTF-8
 export LANGUAGE="ja_JP:ja"
+
+# for deno
+export DENO_INSTALL="$HOME/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"

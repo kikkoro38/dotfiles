@@ -71,7 +71,7 @@ set laststatus=2
 
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
-set list listchars=tab:\▸\-
+set list listchars=eol:$,tab:\▸\-,trail:_
 " Tab文字を半角スペースにする
 set expandtab
 " 行頭以外のTab文字の表示幅（スペースいくつ分）
@@ -133,6 +133,10 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'airblade/vim-gitgutter'
 
 "Plugin 'kchmck/vim-coffee-script'
+
+" deno
+Plugin 'vim-denops/denops-vim'
+Plugin 'vim-denops/denops-helloworld.vim'
 
 " rails 
 Plugin 'tpope/vim-rails'

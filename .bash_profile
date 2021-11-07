@@ -24,3 +24,6 @@ export LANGUAGE="ja_JP:ja"
 # for deno
 export DENO_INSTALL="$HOME/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
+
+#for nvim
+export XDG_CONFIG_HOME=~/.config

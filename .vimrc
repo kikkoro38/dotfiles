@@ -98,6 +98,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'lambdalisue/battery.vim'
 " カラーテーマ
 Plugin 'jacoborus/tender.vim'
+Plugin 'dracula/vim'
 
 " ディレクトリ表示
 Plugin 'scrooloose/nerdtree'
@@ -120,9 +121,8 @@ Plugin 'tpope/vim-endwise'
 Plugin 'ngmy/vim-rubocop'
 Plugin 'scrooloose/syntastic'
 
-Plugin 'lighttiger2505/gtags.vim'
-
-Plugin 'jsfaint/gen_tags.vim'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'mattn/vim-lsp-settings'
 
 call vundle#end()
 
@@ -132,8 +132,8 @@ filetype plugin indent on
 if (has("termguicolors"))
  set termguicolors
 endif
-colorscheme tender
-let g:airline_theme = 'tender'
+colorscheme dracula
+let g:airline_theme = 'dracula'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
@@ -186,26 +186,4 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_style_error_symbol='✗'
 let g:syntastic_warning_symbol='☡'
 let g:syntastic_style_warning_symbol='☡'
-
-"gtags.vim
-"Options
-let g:Gtags_Auto_Map = 0
-let g:Gtags_OpenQuickfixWindow = 1
-
-" Keymap
-" Show definetion of function cousor word on quickfix
-nmap <silent> K :<C-u>exe("Gtags ".expand('<cword>'))<CR>
-" Show reference of cousor word on quickfix
-nmap <silent> R :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>
-
-"----------------------------------------------------
-"" GNU GLOBAL(gtags)
-"----------------------------------------------------
-nmap <C-q> <C-w><C-w><C-w>q
-nmap <C-g> :Gtags -g
-nmap <C-l> :Gtags -f %<CR>
-nmap <C-j> :Gtags <C-r><C-w><CR>
-nmap <C-k> :Gtags -r <C-r><C-w><CR>
-nmap <C-n> :cn<CR>
-nmap <C-p> :cp<CR>
 

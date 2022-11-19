@@ -1,5 +1,5 @@
 #!/bin/bash
-
+export LC_ALL=C
 RELOAD_FILES=(".bash_profile" ".bashrc" ".zshenv" ".zshrc")
 
 for f in .??*

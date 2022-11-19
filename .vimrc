@@ -1,15 +1,15 @@
 :syntax on
 " setting
 "文字コードをUFT-8に設定
-set fenc=utf-8
+set encoding=utf-8
+set fileencodings=iso-2022-jp,euc-jp,sjis,utf-8
+"set fileformats=unix,dos,macset fenc=utf-8
 " バックアップファイルを作らない
 set nobackup
 " スワップファイルを作らない
 set noswapfile
 " 編集中のファイルが変更されたら自動で読み直す
 set autoread
-" viminfo作らない
-" set viminfo=
 " バッファが編集中でもその他のファイルを開けるように
 set hidden
 " 入力中のコマンドをステータスに表示する
@@ -22,20 +22,12 @@ set maxmempattern=4096
 " 見た目系
 " 行番号を表示
 set number
-" 現在の行を強調表示
-"set cursorline
-" 現在の行を強調表示（縦）
-"set cursorcolumn
 " 行末の1文字先までカーソルを移動できるように
 set virtualedit=onemore
 " インデントはスマートインデント
 set smartindent
-" ビープ音を可視化
-"set visualbell
 " 括弧入力時の対応する括弧を表示
 set showmatch
-" ステータスラインを常に表示
-set laststatus=2
 " コマンドラインの補完
 set wildmode=list:longest
 " 折り返し時に表示行単位での移動できるようにする
@@ -46,28 +38,6 @@ nnoremap <S-l> $
 " 全角スペースの背景を白に変更
 autocmd Colorscheme * highlight FullWidthSpace ctermbg=white
 autocmd VimEnter * match FullWidthSpace /　/
-" カラースキーム設定
-colorscheme default
-
-" ステータスライン
-" ファイル名表示
-set statusline=%F
-" 変更チェック表示
-set statusline+=%m
-" 読み込み専用かどうか表示
-set statusline+=%r
-" HELP表示
-set statusline+=%h
-" プレビューウインドウであれば[Preview]表示
-set statusline+=%w
-" これ以降は右寄せ表示
-set statusline+=%=
-" file encoding
-set statusline+=[ENC=%{&fileencoding}]
-" 現在行数/全行数
-set statusline+=[LOW=%l/%L]
-" ステータスラインを常に表示
-set laststatus=2
 
 " Tab系
 " 不可視文字を可視化(タブが「▸-」と表示される)
@@ -78,7 +48,6 @@ set expandtab
 set tabstop=2
 " 行頭でのTab文字の表示幅
 set shiftwidth=2
-
 
 " 検索系
 " 検索文字列が小文字の場合は大文字小文字を区別なく検索する
@@ -123,22 +92,28 @@ set rtp+=~/.vim/bundle/Vundle.vim/
 call vundle#begin()
 " プラグイン管理
 Plugin 'VundleVim/Vundle.vim'
+" ステータスライン
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'lambdalisue/battery.vim'
+" カラーテーマ
+Plugin 'jacoborus/tender.vim'
+Plugin 'dracula/vim'
 
 " ディレクトリ表示
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " git管理
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-fugitive'
 
 "Plugin 'kchmck/vim-coffee-script'
 
-" deno
-Plugin 'vim-denops/denops-vim'
-Plugin 'vim-denops/denops-helloworld.vim'
-
-" rails 
+" rails
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-endwise'
 
@@ -146,18 +121,31 @@ Plugin 'tpope/vim-endwise'
 Plugin 'ngmy/vim-rubocop'
 Plugin 'scrooloose/syntastic'
 
-"Plugin 'lighttiger2505/gtags.vim'
-"
-"Plugin 'jsfaint/gen_tags.vim'
+Plugin 'prabirshrestha/vim-lsp'
+Plugin 'mattn/vim-lsp-settings'
 
 call vundle#end()
+
 filetype plugin indent on
+
+" tender.vim
+if (has("termguicolors"))
+ set termguicolors
+endif
+colorscheme dracula
+let g:airline_theme = 'dracula'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+
+" battery.vim
+set statusline+=%{battery#component()}
+set tabline+=%{battery#component()}
 
 "nerdtree
 nnoremap <silent><C-e> :NERDTreeToggle<CR>
 " 隠しファイル表示
 let NEADTreeShowHidden = 1
-let g:nerdtree_tabs_autoclose = 0
+let g:nerdtree_tabs_autoclose = 1
 
 "vim-coffee-script
 " vimにcoffeeファイルタイプを認識させる
@@ -171,27 +159,6 @@ autocmd FileType coffee setlocal sw=2 sts=2 ts=2 et
 "autocmd QuickFixCmdPost * nested cwindow | redraw!
 " Ctrl-cで右ウィンドウにコンパイル結果を一時表示する
 "nnoremap <silent> <C-C> :CoffeeCompile vert <CR><C-w>h
-
-"gtags.vim
-"Options
-"let g:Gtags_Auto_Map = 0
-"let g:Gtags_OpenQuickfixWindow = 1
-"" Keymap
-"" Show definetion of function cousor word on quickfix
-"nmap <silent> K :<C-u>exe("Gtags ".expand('<cword>'))<CR>
-"" Show reference of cousor word on quickfix
-"nmap <silent> R :<C-u>exe("Gtags -r ".expand('<cword>'))<CR>
-" 
-""----------------------------------------------------
-""" GNU GLOBAL(gtags)
-""----------------------------------------------------
-"nmap <C-q> <C-w><C-w><C-w>q
-"nmap <C-g> :Gtags -g
-"nmap <C-l> :Gtags -f %<CR>
-"nmap <C-j> :Gtags <C-r><C-w><CR>
-"nmap <C-k> :Gtags -r <C-r><C-w><CR>
-"nmap <C-n> :cn<CR>
-"nmap <C-p> :cp<CR>
 
 "gitgutter
 nnoremap <silent> <M-g> :GitGutterToggle<CR>
@@ -219,3 +186,4 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_style_error_symbol='✗'
 let g:syntastic_warning_symbol='☡'
 let g:syntastic_style_warning_symbol='☡'
+

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RELOAD_FILES=(".bash_profile" ".bashrc")
+RELOAD_FILES=(".bash_profile" ".bashrc" ".zshenv" ".zshrc")
 
 for f in .??*
 do

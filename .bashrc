@@ -24,3 +24,5 @@ alias bi='bundle install --clean'
 alias rails='bundle exec rails'
 alias rspec='bundle exec rspec'
 alias rubocop='bundle exec rubocop'
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"

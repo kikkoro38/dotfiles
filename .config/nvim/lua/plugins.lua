@@ -9,6 +9,9 @@ return {
       end
     },
     {
+      'ryanoasis/vim-devicons'
+    },
+    {
       'tpope/vim-fugitive'
     },
     {
@@ -17,7 +20,7 @@ return {
     {
       'lambdalisue/fern.vim',
       keys = { 
-        { '<C-e>', ':Fern . -drawer -toggle -reveal=% <CR>', silent = true }
+        { '<C-e>', ':Fern . -drawer -toggle -reveal=% <CR>', silent = true },
       },
       dependencies = {
         {
@@ -31,8 +34,11 @@ return {
         },
         {
           'lambdalisue/fern-git-status.vim'
-        }
+        },
       },
+      config = function()
+        vim.g['fern#default_hidden'] = 1
+      end
     },
     {
       'vim-airline/vim-airline'
@@ -74,10 +80,25 @@ return {
       'vim-denops/denops.vim'
     },
     {
-      'vim-skk/skkeleton'
+      'vim-skk/skkeleton',
+      config = function()
+        vim.fn['skkeleton#config']({ globalJisyo = '~/.skk/dict/SKK-JISYO.L' })
+        vim.keymap.set('i', '<C-j>', '<Plug>(skkeleton-toggle)')
+        vim.keymap.set('c', '<C-j>', '<Plug>(skkeleton-toggle)')
+      end
     },
     {
-      'nvim-treesitter/nvim-treesitter'
+      'nvim-treesitter/nvim-treesitter',
+      build = ':TSUpdate',
+      config = function ()
+        local configs = require('nvim-treesitter.configs')
+        configs.setup({
+          ensure_installed = { 'c', 'lua', 'vim', 'vimdoc', 'query', 'elixir', 'heex', 'javascript', 'html' },
+          sync_install = false,
+          highlight = { enable = true },
+          indent = { enable = true },  
+        })
+      end
     },
   }
 }

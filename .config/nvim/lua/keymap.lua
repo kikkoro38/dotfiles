@@ -1,0 +1,21 @@
+vim.keymap.set('n', 'j', 'gj')
+vim.keymap.set('n', 'k', 'gk')
+vim.keymap.set('n', '<S-h>', '^', { noremap = true })
+vim.keymap.set('n', '<S-l>', '$', { noremap = true })
+
+vim.keymap.set('n', '<Esc><Esc>', ':nohlsearch<CR><Esc>')
+
+vim.keymap.set('v', '<C-p>', '"0p', { noremap = true, silent = true })
+
+vim.keymap.set('n', '[TABCMD]', '<nop>', { noremap = true })
+vim.keymap.set('n', '<leader>t', '[TABCMD]')
+vim.keymap.set('n', '[TABCMD]f', ':<c-u>tabfirst<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '[TABCMD]l', ':<c-u>tablast<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '[TABCMD]n', ':<c-u>tabnext<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '[TABCMD]N', ':<c-u>tabNext<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '[TABCMD]p', ':<c-u>tabprevious<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '[TABCMD]e', ':<c-u>tabedit<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '[TABCMD]c', ':<c-u>tabclose<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '[TABCMD]o', ':<c-u>tabonly<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '[TABCMD]s', ':<c-u>tabs<cr>', { noremap = true, silent = true })
+vim.keymap.set('n', '[TABCMD]f', ':<c-u>tabfirst<cr>', { noremap = true })

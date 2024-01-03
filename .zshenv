@@ -21,8 +21,6 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 #for nvim
 export XDG_CONFIG_HOME=~/.config
 
-# WSLでsystemctlを使えるようにする設定
-# genieのinstallが必要
 if [[ ! -v INSIDE_GENIE ]]; then
   echo "Starting genie:"
   exec /usr/bin/genie -s
